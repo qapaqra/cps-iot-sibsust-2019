@@ -17,8 +17,12 @@ var board = new firmata.Board("/dev/ttyACM0", function(){ // ACM Abstract Contro
     console.log("Connecting to Arduino");
     console.log("Activation of Pin 13");
     board.pinMode(13, board.MODES.OUTPUT); // Configures the specified pin to behave either as an input or an output.
-    console.log("Enabling pin 2 for button");
+    //console.log("Enabling pin 2 for button");
     board.pinMode(2, board.MODES.INPUT);
+    board.pinMode(2, board.MODES.OUTPUT); // direction of DC motor
+    board.pinMode(3, board.MODES.PWM); // PWM of motor i.e. speed of rotation
+    board.pinMode(4, board.MODES.OUTPUT); // direction DC motor
+
 });
 
 function handler(req, res) {
